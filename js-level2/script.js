@@ -344,7 +344,7 @@ function third(){
 /* this variable
 1. Regular function call: the this keyword points at the global object.
 2. Method call : the this variable points to the object that is calling the method.
-*/ 
+
 var Joo ={
     name : 'Joo',
     yearOfBirth : 1995,
@@ -367,3 +367,5 @@ var Doo = {
 
 Doo.calculateAge = Joo.calculateAge; //Method Borrowing.
 Doo.calculateAge();
+----------------------------------------------------*/
+
