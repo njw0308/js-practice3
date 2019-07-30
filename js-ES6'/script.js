@@ -106,6 +106,21 @@ console.log(ages6)
 
 /*--------------------------- Arrow func2 
 
+var box5 = {
+    color: 'green',
+    position: 1,
+    clickMe: function() {
+       
+       document.querySelector('.green').addEventListener('click', ()=> {
+            var str = 'This is box number ' + this.position + ' and it is ' + this.color;
+            alert(str);
+        });
+    }
+}
+box5.clickMe()
+
+
+
 //ES5
 var box6 = { 
     color : 'green',
@@ -128,6 +143,7 @@ const box6 ={
         document.querySelector('.green').
         addEventListener('click', ()=>{
             alert(`${this.color} ${this.position}`) // ES5 였다면 this 가 window object를 가리켰을 것임
+                                                       arrow function 은 this 를 애초에 갖고 있지 않기때문에, 선언된 순간(즉, 상위 스코프)의 this와 동일한 this를 갖게 됨.
         })
     }
 }
@@ -353,6 +369,7 @@ Doo.wonMedal();
 Doo.calculateAge();
 ------------------------------*/
 
+/* practice 
 class Element{
     constructor(name, buildYear){
         this.name= name;
@@ -398,9 +415,20 @@ const allStreets = [new Street('Ocean Avenue', 1999, 1.1, 4),
                    new Street('4th Street', 2015, 0.8),
                    new Street('Sunset Boulevard', 1982, 2.5, 5)];
 
-function reportPark(p){
 
+function calc(arr){
+    const sum = arr.reduce((prev, cur, index) => prev +cur, 0);
+    return [sum, sum/ arr.length];
+}
+
+function reportPark(p){
+    
+    //Density
     p.forEach(cur => cur.treeDensity());
+    
+    //Average age 
+    const ages =p.map(cur => new Date().getFullYear() - cur.buildYear);
+    const [totalAge, avgAge] = calc(ages);
 
 }
 
@@ -410,3 +438,4 @@ function reportStreet(s){
 }
 reportPark(allParks);
 reportStreet(allStreets);
+*/
